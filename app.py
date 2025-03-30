@@ -53,7 +53,7 @@ def compare_photo_with_url(photo_path, image_url):
             result = DeepFace.verify(
                 img1_path=photo_path,
                 img2_path=temp_url_file,
-                model_name='VGG-Face',
+                model_name='SFace',
                 detector_backend='opencv',
                 distance_metric='cosine'
             )
@@ -188,6 +188,10 @@ def test_endpoint():
         'status': 'ok',
         'message': 'API is working correctly'
     })
+    
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    return jsonify({"status": "ok"}), 200
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
