@@ -53,7 +53,7 @@ def compare_photo_with_url(photo_path, image_url):
             result = DeepFace.verify(
                 img1_path=photo_path,
                 img2_path=temp_url_file,
-                model_name='SFace',
+                model_name='Facenet',
                 detector_backend='opencv',
                 distance_metric='cosine'
             )
